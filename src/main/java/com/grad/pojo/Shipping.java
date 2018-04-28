@@ -11,13 +11,9 @@ public class Shipping {
 
     private String receiverPhone;
 
-    private String receiverMobile;
-
     private String receiverProvince;
 
     private String receiverCity;
-
-    private String receiverDistrict;
 
     private String receiverAddress;
 
@@ -27,15 +23,13 @@ public class Shipping {
 
     private Date updateTime;
 
-    public Shipping(Integer id, Integer userId, String receiverName, String receiverPhone, String receiverMobile, String receiverProvince, String receiverCity, String receiverDistrict, String receiverAddress, String receiverZip, Date createTime, Date updateTime) {
+    public Shipping(Integer id, Integer userId, String receiverName, String receiverPhone, String receiverProvince, String receiverCity, String receiverAddress, String receiverZip, Date createTime, Date updateTime) {
         this.id = id;
         this.userId = userId;
         this.receiverName = receiverName;
         this.receiverPhone = receiverPhone;
-        this.receiverMobile = receiverMobile;
         this.receiverProvince = receiverProvince;
         this.receiverCity = receiverCity;
-        this.receiverDistrict = receiverDistrict;
         this.receiverAddress = receiverAddress;
         this.receiverZip = receiverZip;
         this.createTime = createTime;
@@ -78,14 +72,6 @@ public class Shipping {
         this.receiverPhone = receiverPhone == null ? null : receiverPhone.trim();
     }
 
-    public String getReceiverMobile() {
-        return receiverMobile;
-    }
-
-    public void setReceiverMobile(String receiverMobile) {
-        this.receiverMobile = receiverMobile == null ? null : receiverMobile.trim();
-    }
-
     public String getReceiverProvince() {
         return receiverProvince;
     }
@@ -100,14 +86,6 @@ public class Shipping {
 
     public void setReceiverCity(String receiverCity) {
         this.receiverCity = receiverCity == null ? null : receiverCity.trim();
-    }
-
-    public String getReceiverDistrict() {
-        return receiverDistrict;
-    }
-
-    public void setReceiverDistrict(String receiverDistrict) {
-        this.receiverDistrict = receiverDistrict == null ? null : receiverDistrict.trim();
     }
 
     public String getReceiverAddress() {

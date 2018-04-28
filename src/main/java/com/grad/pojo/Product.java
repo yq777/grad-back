@@ -18,6 +18,8 @@ public class Product {
 
     private String detail;
 
+    private String content;
+
     private BigDecimal price;
 
     private Integer stock;
@@ -30,7 +32,7 @@ public class Product {
 
     private Date updateTime;
 
-    public Product(Integer id, Integer categoryId, String name, String subtitle, String mainImage, String subImages, String detail, BigDecimal price, Integer stock, Integer saleStock, Integer status, Date createTime, Date updateTime) {
+    public Product(Integer id, Integer categoryId, String name, String subtitle, String mainImage, String subImages, String detail, String content, BigDecimal price, Integer stock, Integer saleStock, Integer status, Date createTime, Date updateTime) {
         this.id = id;
         this.categoryId = categoryId;
         this.name = name;
@@ -38,6 +40,7 @@ public class Product {
         this.mainImage = mainImage;
         this.subImages = subImages;
         this.detail = detail;
+        this.content = content;
         this.price = price;
         this.stock = stock;
         this.saleStock = saleStock;
@@ -152,5 +155,13 @@ public class Product {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

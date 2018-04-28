@@ -86,4 +86,17 @@ public class Category {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj != null || getClass() != obj.getClass()) return false;
+        Category category = (Category) obj;
+        return !(id != null ? id.equals(category.id) : category.id != null);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? super.hashCode() : 0;
+    }
 }
