@@ -83,6 +83,18 @@ public class OrderController {
     }
 
 
+    @RequestMapping("delete.do")
+    @ResponseBody
+    public ServerResponse delete(HttpSession session, @RequestBody ParamRequest request) {
+        JsonObject object = new JsonParser().parse(request.getData()).getAsJsonObject();
+        Long orderNo = object.get("orderNo").getAsLong();
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录或登录已过期");
+        }
+        return iOrderService.delete(user.getId(), orderNo);
+    }
+
     @RequestMapping("pay.do")
     @ResponseBody
     public ServerResponse pay(HttpSession session, @RequestBody ParamRequest paramRequest, HttpServletRequest request) {

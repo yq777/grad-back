@@ -191,4 +191,8 @@
         from mmall_order_item
         where order_no = #{orderNo}
     </select>
+
+    <delete id="deleteByOrderNo" parameterType="map">
+        delete from mmall_order_item where user_id = #{userId} and  order_no = #{orderNo}
+    </delete>
 </mapper>

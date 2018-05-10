@@ -24,4 +24,6 @@ public interface OrderItemMapper {
 
     List<OrderItem> getByOrderNo(@Param("orderNo") Long orderNo);
 
+    void deleteByOrderNo(@Param("userId") Integer userId,@Param("orderNo") Long orderNo);
+
 }

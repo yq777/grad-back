@@ -106,6 +106,12 @@ public class OrderServiceImpl implements IOrderService {
         return ServerResponse.createBySuccess(orderVo);
     }
 
+    public ServerResponse delete(Integer userId, Long orderNo) {
+        orderMapper.deleteByOrderNo(userId, orderNo);
+        orderItemMapper.deleteByOrderNo(userId, orderNo);
+        return ServerResponse.createBySuccess();
+    }
+
     public ServerResponse<String> cancel(Integer userId, Long orderNo) {
         Order order = orderMapper.selectByUserIdAndOrderNo(userId, orderNo);
         if (order == null) {

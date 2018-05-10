@@ -235,4 +235,8 @@
         from mmall_order
         ORDER BY create_time desc
     </select>
+
+    <delete id="deleteByOrderNo" parameterType="map">
+        DELETE FROM mmall_order where user_id=#{userId} and order_no = #{orderNo}
+    </delete>
 </mapper>
