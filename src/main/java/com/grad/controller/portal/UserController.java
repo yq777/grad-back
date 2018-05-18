@@ -77,7 +77,7 @@ public class UserController {
         if (user != null) {
             return ServerResponse.createBySuccess(user);
         }
-        return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录或登录已过期");
+        return ServerResponse.createByErrorMessage("用户未登录,登录已过期");
     }
 
     // 获取忘记密码的密保问题
@@ -143,7 +143,7 @@ public class UserController {
     public ServerResponse<User> getInformation(HttpSession session) {
         User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
         if (currentUser == null) {
-            return ServerResponse.createByErrorMessage("用户未登录或登录已过期");
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录或登录已过期");
         }
         return iUserService.getInformation(currentUser.getId());
     }
