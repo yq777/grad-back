@@ -29,5 +29,7 @@ public interface IOrderService {
 
     ServerResponse<String> manageSendGoods(Long orderNo);
 
+    ServerResponse<String> manageConfirmGetGoods(Long orderNo);
+
     ServerResponse delete(Integer userId, Long orderNo);
 }

@@ -158,4 +158,17 @@ public class OrderController {
         return ServerResponse.createBySuccess(false);
     }
 
+    @RequestMapping("confirm_get_goods.do")
+    @ResponseBody
+    public ServerResponse<String> orderConfirmGetGoods(HttpSession session, @RequestBody ParamRequest request) {
+        JsonObject object = new JsonParser().parse(request.data).getAsJsonObject();
+        Long orderNo = object.get("orderNo").getAsLong();
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user == null) {
+            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录或登录已过期");
+
+        }
+        //填充我们增加产品的业务逻辑
+        return iOrderService.manageConfirmGetGoods(orderNo);
+    }
 }
